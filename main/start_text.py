@@ -45,9 +45,9 @@ async def help(bot, msg):
 @Client.on_callback_query(filters.regex("about"))
 async def about(bot, msg):
     me=await bot.get_me()
-    Master=f"<a href=https://t.me/Chowdhury_Siam</a>"  
+    Master=f"<a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a> & <a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a>"
     Source="<a href=https://github.com/Siam19395/Rename_Bot>Click Here</a>"
-    txt=f"<b>Bot Name: {me.mention}\nDeveloper: <a href=https://t.me/Chowdhury_Siam>Siam</a>\nOwner Channel: <a href=https://t.me/Anime_Kun_Channel>Anime Kun</a>\nMy Master's: {Master}\nSource Code: {Source}</b>"                 
+    txt=f"<b>Bot Name: {me.mention}\nDeveloper: <a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a>\nOwner Channel: <a href=https://t.me/Anime_Kun_Channel>Anime Kun</a>\nMy Master's: {Master}\nSource Code: {Source}</b>"                 
     button= [[        
         InlineKeyboardButton("🚫 Close", callback_data="del"),
         InlineKeyboardButton("⬅️ Back", callback_data="start") 
