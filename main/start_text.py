@@ -19,7 +19,7 @@ async def start_cmd(bot, msg):
 
 @Client.on_callback_query(filters.regex("start"))
 async def start(bot, msg, cb=True):   
-    txt=f"Hey {msg.from_user.mention} I am Rin Toosaka a rename bot for personal usage.\nthis bot is made by <b><a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a></b>"                                     
+    txt=f"Hey {msg.from_user.mention} I'm Rin Toosaka a rename bot for personal usage.\nThis bot is made by <b><a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a></b>"                                     
     button= [[
         InlineKeyboardButton("🛠️ Owner Channel", url="https://t.me/Anime_Kun_Channel")
         ],[
