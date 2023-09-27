@@ -19,7 +19,7 @@ async def start_cmd(bot, msg):
 
 @Client.on_callback_query(filters.regex("start"))
 async def start(bot, msg, cb=True):   
-    txt=f"hai {msg.from_user.mention} i am simple rename bot with personal usage.\nthis bot is made by <b><a href=https://t.me/Chowdhury_Siam>Siam</a></b>"                                     
+    txt=f"Hey {msg.from_user.mention} I am Rin Toosaka a rename bot for personal usage.\nthis bot is made by <b><a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a></b>"                                     
     button= [[
         InlineKeyboardButton("🛠️ Owner Channel", url="https://t.me/Anime_Kun_Channel")
         ],[
@@ -45,7 +45,7 @@ async def help(bot, msg):
 @Client.on_callback_query(filters.regex("about"))
 async def about(bot, msg):
     me=await bot.get_me()
-    Master=f"<a href=https://t.me/Chowdhury_Siam</a> & <a href=https://t.me/Anime_Kun_Channel>Anime Kun</a>"  
+    Master=f"<a href=https://t.me/Chowdhury_Siam</a>"  
     Source="<a href=https://github.com/Siam19395/Rename_Bot>Click Here</a>"
     txt=f"<b>Bot Name: {me.mention}\nDeveloper: <a href=https://t.me/Chowdhury_Siam>Siam</a>\nOwner Channel: <a href=https://t.me/Anime_Kun_Channel>Anime Kun</a>\nMy Master's: {Master}\nSource Code: {Source}</b>"                 
     button= [[        
