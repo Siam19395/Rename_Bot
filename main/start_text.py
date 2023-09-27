@@ -5,12 +5,40 @@ from config import ADMIN
 
 @Client.on_message(filters.command("start") & filters.private)                             
 async def start_cmd(bot, msg):
-    txt="Hi!!! I'm Rin Toosaka and I'm a Personal Rename Bot of @Chowdhury_Siam"
-    btn = InlineKeyboardMarkup([[
-        InlineKeyboardButton("👑 Owner", url="https://t.me/Chowdhury_Siam")
-        ],[
+    txt=f"Hey {msg.from_user.mention} I'm Rin Toosaka a rename bot for personal usage.\nThis bot is made by <b><a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a></b>"                                     
+    button= [[
         InlineKeyboardButton("🛠️ Owner Channel", url="https://t.me/Anime_Kun_Channel")
-    ]])
+        ],[
+        InlineKeyboardButton("ℹ️ Help", callback_data="help"),
+        InlineKeyboardButton("📡 About", callback_data="about") 
+    ]]  
+ if cb:
+        await msg.message.edit(text=txt, reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview = True, parse_mode=enums.ParseMode.HTML)
+    else:
+        await msg.reply_text(text=txt, reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview = True, parse_mode=enums.ParseMode.HTML)
+
+@Client.on_callback_query(filters.regex("help"))
+async def help(bot, msg):
+    txt=f"just send a file and /rename <new name> with replayed your file\n\nReply a photo and send /set to set temporary thumbnail\n/view to see your thumbnail"
+    button= [[        
+        InlineKeyboardButton("🚫 Close", callback_data="del"),
+        InlineKeyboardButton("⬅️ Back", callback_data="start") 
+    ]]  
+    await msg.message.edit(text=txt, reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview = True)
+
+
+@Client.on_callback_query(filters.regex("about"))
+async def about(bot, msg):
+    me=await bot.get_me()
+    Master=f"<a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a>"
+    Source="<a href=https://github.com/Siam19395/Rename_Bot>Click Here</a>"
+    txt=f"<b>Bot Name: {me.mention}\nDeveloper: <a href=https://t.me/Chowdhury_Siam>Siam Chowdhury</a>\nOwner Channel: <a href=https://t.me/Anime_Kun_Channel>Anime Kun</a>\nMy Master's: {Master}\nSource Code: {Source}</b>"                 
+    button= [[        
+        InlineKeyboardButton("🚫 Close", callback_data="del"),
+        InlineKeyboardButton("⬅️ Back", callback_data="start") 
+    ]]  
+    await msg.message.edit(text=txt, reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview = True, parse_mode=enums.ParseMode.HTML)
+
     if msg.from_user.id != ADMIN:
         await msg.reply_text(text=txt, reply_markup=btn, disable_web_page_preview = True)
         return
